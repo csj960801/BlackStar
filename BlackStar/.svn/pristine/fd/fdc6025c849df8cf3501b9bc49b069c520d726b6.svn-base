@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+/**
+상품페이지 전용 css
+*/
+@media ( max-width :767px) {
+	.blackstar_img {
+		width: 180px;
+		margin: auto;
+	}
+	.watch_h1 {
+		text-align: center;
+		font-size: 13px;
+		letter-spacing: 2px;
+	}
+	.watch_h1 span.watch_span {
+		display: block;
+		padding: 15px 0;
+		font-size: 15px;
+	}
+	.watch_wrapper {
+		height: 920px;
+	}
+	.watch_wrapper .watch_box {
+		margin-bottom: 35px;
+	}
+	p.watch_p {
+		text-align: center;
+		margin: 15px 0;
+	}
+	.item_desc .item_title_ol {
+		margin: 0;
+		padding: 0;
+	}
+	.item_desc .item_title_ol li {
+		padding: 5px 0;
+	}
+	.item_desc .item_title_ol .item_emphasize {
+		border-bottom: 1px solid #ddd;
+	}
+	.img_wrapper {
+		text-align: center;
+	}
+	.img_wrapper .item_img {
+		max-width: 250px;
+	}
+	.btn_wrapper {
+		padding: 10px 0;
+	}
+	.btn_wrapper #bookBtn,
+	.btn_wrapper #InquiryBtn
+	 {
+		padding: 3px 5px;
+	}
+}

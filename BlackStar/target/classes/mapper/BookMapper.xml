@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.BookMapper">
+
+	<resultMap id="book" type="bookvo">
+		<result property="book_ondate" column="startDate" />
+		<result property="book_outdate" column="endDate" />
+		<result property="book_name" column="userName" />
+		<result property="book_content" column="userContent" />
+	</resultMap>
+
+	<!-- 예약정보 저장 -->
+	<insert id="book_insert" parameterType="bookvo">
+		INSERT INTO
+		bookBoard(startDate, endDate, userName, userContent)
+		VALUES(#{book_ondate},#{book_outdate},#{book_name},#{book_content})
+	</insert>
+
+	<!--예약 데이터 출력 -->
+	<select resultMap="book" id="bookSelect">
+		SELECT * FROM bookboard
+	</select>
+
+</mapper>

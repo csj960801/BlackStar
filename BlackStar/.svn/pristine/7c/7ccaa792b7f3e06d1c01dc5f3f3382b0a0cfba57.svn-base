@@ -1,0 +1,47 @@
+package com.BlackStar.BlackStarDAO;
+
+import java.util.Map;
+
+import org.apache.ibatis.session.SqlSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
+
+import com.BlackStar.BlackStarVO.BlackStarLoginVO;
+import com.BlackStar.BlackStarVO.BlackStarRegistVO;
+import com.BlackStar.SqlSession.BlackStarSqlSession;
+
+@Repository
+public class BlackStarDAO {
+
+	private Logger log = LoggerFactory.getLogger(this.getClass());
+	private SqlSession session = BlackStarSqlSession.getSessionInstance();
+
+	/**
+	 * 회원가입
+	 * @param regvo
+	 * @return
+	 */
+	public boolean Register(BlackStarRegistVO regvo) {
+		boolean check = false;
+		int insert = session.insert("userDataInsert", regvo);
+		if (insert > 0) {
+			check = true;
+			session.commit();
+		}
+
+		return check;
+	}
+
+	
+	/**
+	 * 로그인
+	 * @param loginvo
+	 * @return
+	 */
+	public BlackStarLoginVO Login(BlackStarLoginVO loginvo) {
+		BlackStarLoginVO loginFlag = session.selectOne("login", loginvo);
+		return loginFlag;
+	}
+	
+}// end of DAO

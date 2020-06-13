@@ -1,0 +1,135 @@
+package com.BlackStar.BlackStar;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.BlackStar.BlackStarService.BlackStarService;
+import com.BlackStar.BlackStarVO.BlackStarBookVO;
+import com.BlackStar.BlackStarVO.BlackStarInquiryVO;
+import com.BlackStar.BlackStarVO.BlackStarLoginVO;
+import com.BlackStar.BlackStarVO.BlackStarRegistVO;
+import com.BlackStar.Item.Item;
+
+@Controller
+public class BlackStarController {
+
+	private static final Logger logger = LoggerFactory.getLogger(BlackStarController.class);
+
+	@Autowired
+	private BlackStarService service;
+
+	/**
+	 * 요청받은 URL이 index.do 혹은 main.do일 경우 home으로 이동
+	 */
+	@RequestMapping({ "/index.do", "/main.do" })
+	public Map<String, Object> toIndex(HttpServletRequest req) {
+		logger.info("=========================");
+		logger.info("Welcome home!");
+		logger.info("=========================");
+
+		Map<String, Object> indexMap = new HashMap<String, Object>();
+		indexMap.put("test", req.getMethod());
+		return (indexMap.size() > 0) ? indexMap : null;
+	}
+
+	/**
+	 * 1)회원가입
+	 * 
+	 * @param bsvo
+	 * @return
+	 */
+	@RequestMapping(value = "/User/register.do", method = RequestMethod.POST)
+	public Map<String, Object> regMap(@ModelAttribute("regvo") BlackStarRegistVO regvo) {
+
+		logger.info("=========================");
+		logger.info("Welcome MemberReg!");
+		logger.info("=========================");
+
+		Map<String, Object> loginMap = new HashMap<String, Object>();
+		boolean insert = service.Register(regvo);
+		if (insert) {
+			loginMap.put("memberReg", insert);
+		}
+		return loginMap;
+	}
+
+	/**
+	 * 2)로그인
+	 * 
+	 * @param bsvo
+	 * @return
+	 */
+	@RequestMapping(value = "/User/login.do", method = RequestMethod.POST)
+	public Map<String, Object> loginMap(@ModelAttribute("loginvo") BlackStarLoginVO logvo, HttpServletRequest req) {
+		logger.info("=========================");
+		logger.info("Welcome login!");
+		logger.info("=========================");
+
+		boolean loginFlag = false;
+		Map<String, Object> loginMap = new HashMap<String, Object>();
+		BlackStarLoginVO loginResult = service.Login(logvo);
+
+		// 회원이 존재 할 경우 true.
+		if (loginResult != null) {
+			loginFlag = true;
+			loginMap.put("login", loginFlag);
+
+			HttpSession session = req.getSession();
+			session.setAttribute("login", logvo.getLoginid());
+
+		}
+
+		return loginMap;
+	}
+
+	/**
+	 * 3) 문의 게시판
+	 * 
+	 * @param inquiryvo
+	 * @return
+	 */
+	@RequestMapping(value = "/board/Inquiry.do", method = RequestMethod.POST)
+	public Map<String, Object> boardMap(@ModelAttribute("inquiryvo") BlackStarInquiryVO inquiryvo) {
+		Map<String, Object> inquiryMap = new HashMap<String, Object>();
+
+		boolean inquiryCheck = service.inquiry(inquiryvo);
+
+		if (inquiryCheck) {
+			inquiryMap.put("inquiryInsert", inquiryCheck);
+			logger.info("---------------------------");
+			logger.info("문의게시글 insert 완료.");
+			logger.info("---------------------------");
+		}
+
+		return inquiryMap;
+	}
+
+	/**
+	 * 4) 예약기능
+	 * 
+	 * @param inquiryvo
+	 * @return
+	 */
+	@RequestMapping(value = "/board/book.do", method = RequestMethod.POST)
+	public Map<String, Object> bookMap(@ModelAttribute("bookvo") BlackStarBookVO bookvo, HttpServletResponse res) {
+		Map<String, Object> inquiryMap = new HashMap<String, Object>();
+
+		return inquiryMap;
+	}
+
+}// end of controller

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- 레이이웃 구조 설정(index.jsp에) -->
+	<definition name="base" template="/WEB-INF/views/index.jsp">
+	    <put-attribute name="Top" value="/WEB-INF/tiles/Template/Top.jsp"/>
+	    <put-attribute name="Submenu" value="/WEB-INF/tiles/Template/Submenu.jsp"/>
+	    <put-attribute name="Footer" value="/WEB-INF/tiles/Template/Footer.jsp"/>
+	</definition>
+</tiles-definitions>

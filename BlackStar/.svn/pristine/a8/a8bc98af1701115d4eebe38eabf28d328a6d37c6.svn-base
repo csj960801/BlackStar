@@ -1,0 +1,17 @@
+<!-- Footer -->
+<div class="footer_wrap">
+	<footer class="footer">
+		<div class="row">
+			<ul class="footer_ul">
+				<li>CopyRight</li>
+				<li>&copy;</li>
+				<li>BlackStar Reserved.</li>
+				<li class="emphasize">주소:</li>
+				<li>서울특별시 마포구 잠실대교</li>
+				<li>롯데캐슬</li>
+				<li class="emphasize">대표:</li>
+				<li>천세진</li>
+			</ul>
+		</div>
+	</footer>
+</div>

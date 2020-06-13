@@ -1,0 +1,22 @@
+package com.BlackStar.BlackStarVO;
+
+public class BlackStarBookVO {
+
+	private String book_ondate;
+	private String book_outdate;
+	
+	public String getBook_ondate() {
+		return book_ondate;
+	}
+	public void setBook_ondate(String book_ondate) {
+		this.book_ondate = book_ondate;
+	}
+	public String getBook_outdate() {
+		return book_outdate;
+	}
+	public void setBook_outdate(String book_outdate) {
+		this.book_outdate = book_outdate;
+	}
+	
+	
+}

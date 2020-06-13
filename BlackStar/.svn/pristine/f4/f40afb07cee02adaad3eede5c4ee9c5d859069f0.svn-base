@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+@media ( min-width :1025px) {
+	.inquiry_wrapper {
+		height: 885px;
+	}
+	.inquiry_table_wrapper .inquiry_table {
+		margin: auto;
+		width: 65%;
+	}
+	.inquiry_table_wrapper .inquiry_table .inquiry_span {
+		float: left;
+		display: inline-block;
+		padding: 5px 10px;
+	}
+	.inquiry_name, .inquiry_reason, .inquiry_content {
+		width: 70%;
+	}
+	.inquiry_table_wrapper dl.inquiry_table dd {
+		padding: 15px 0;
+		border-bottom: 1px solid #ddd;
+	}
+}

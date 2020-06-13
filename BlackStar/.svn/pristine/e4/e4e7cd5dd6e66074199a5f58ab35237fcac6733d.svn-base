@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+/* mobile  */
+@media ( max-width :767px) {
+	* {
+		font-size: 10px;
+	}
+	.Scroll_before_wrapper {
+		border-bottom: 1px solid #ddd;
+		padding: 15px 0;
+	}
+	.Scroll_before_h1 {
+		text-align: center;
+		margin: 0 0 10px;
+	}
+	.Scroll_before_h1 .Scroll_before_img1 {
+		width: 150px;
+		display: inline-block;
+	}
+	.Scroll_before_Content .Scroll_before_main {
+		cursor: pointer;
+		background: url(/Photo/main/main1.jpg) no-repeat center;
+		height: 220px;
+	}
+	.Scroll_before_SubContent {
+		position: relative;
+	}
+	.Scroll_before_SubContent .Scroll_before_sub1 {
+		
+	}
+	.Scroll_before_SubContent .Scroll_before_sub1 .sub_img1 {
+		border-radius: 5px;
+	}
+	.Scroll_before_SubContent .Scroll_before_sub2 {
+		
+	}
+	.Scroll_before_wrapper .Scroll_before_sub3 {
+		width: 245px;
+		margin: auto;
+	}
+	.Main_category_wrapper {
+		height: 330px;
+	}
+	.main_container {
+		height: 350px;
+	}
+	.Main_category_wrapper img {
+		height: 50px;
+		margin: auto;
+	}
+	.Main_category_wrapper .watch_p {
+		text-align: center;
+		font-size: 10px;
+	}
+	.main_remote .main_remote_ul {
+		padding: 0;
+		margin: 0;
+	}
+	.main_remote .main_remote_ul li {
+		text-align: center;
+		float: left;
+		padding: 5px 20px 15px 0;
+	}
+	.main_remote .main_remote_ul li a {
+		font-size: 10px;
+		color: #333;
+	}
+	.upArrow::before {
+		content: "\f062";
+		font-family: "fontAwesome";
+	}
+	#main_carousel {
+		
+	}
+	.carousel_row .indicator li {
+		
+	}
+	.carousel_row .indicator {
+		
+	}
+	.carousel_row .carousel_img_wrapper .item:first-child {
+		background: url("/Photo/banner/rolex.jpg") no-repeat center;
+		height: 150px;
+	}
+	.carousel_row .carousel_img_wrapper .item:nth-child(2) {
+		background: url("/Photo/banner/vans.jpg") no-repeat center;
+		height: 150px;
+	}
+	.carousel_row .carousel_img_wrapper .item:last-child {
+		background: url("/Photo/banner/gucci.jpg") no-repeat center;
+		height: 150px;
+	}
+	.sub_title_wrapper {
+		width: 240px;
+		margin: auto;
+		height: 175px;
+	}
+	.user_check_wrapper .user_check_p {
+		float: left;
+		padding: 0 15px 0 0;
+	}
+	.user_check_wrapper a.login_a {
+		color: #333;
+	}
+	tbody.register_table_body tr th, .login_table tbody.login_table_body tr th
+		{
+		vertical-align: middle;
+		text-align: center;
+	}
+	.footer {
+		background: #333;
+		position: fixed;
+		width: 100%;
+		top: 91%;
+	}
+	.footer_wrap .footer_ul li {
+		float: left;
+		padding: 3px 5px;
+		color: #fff;
+		word-break: break-word;
+	}
+	.footer li.emphasize {
+		font-weight: 700;
+	}
+}

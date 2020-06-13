@@ -1,0 +1,132 @@
+package com.BlackStar.Item;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class Item {
+	private Logger itemLog = LoggerFactory.getLogger(Item.class);
+
+	/**
+	 * 브랜드의 이미지와 코드를 구별할수있도록 하는 알고리즘
+	 * 
+	 * @param itemKind
+	 * @return
+	 */
+	public String[] ItemDetailFunction(String item) {
+		String itemKindLower = item.toLowerCase();
+		String[] splitData = itemKindLower.split("");
+		String[] ItemInfo = new String[2];
+
+		// 시계 상품 이미지명으로 사용될 변수(1~9)
+		int dataNum = Integer.parseInt(splitData[0]);
+
+		// 시계상품, 금반지 이미지명으로 사용될 변수(10~20)
+		int dataNum2 = Integer.parseInt(splitData[0] + splitData[1]);
+
+		// 1부터 10은 Tissot시계
+		for (int i = 0; i < dataNum; i++) {
+			if (dataNum < 10) {
+				itemLog.info("=================================");
+				itemLog.info("아이템 dataNum: " + Integer.toString(dataNum));
+				itemLog.info("=================================");
+				if (dataNum == 1) {
+					ItemInfo[0] = Integer.toString(dataNum);
+					ItemInfo[1] = itemKindLower.replaceAll("1tissot", "Tissot");
+					break;
+				} else if (dataNum == 2) {
+					ItemInfo[0] = Integer.toString(dataNum);
+					ItemInfo[1] = itemKindLower.replaceAll("2tissot", "Tissot2");
+					break;
+				} else if (dataNum == 3) {
+					ItemInfo[0] = Integer.toString(dataNum);
+					ItemInfo[1] = itemKindLower.replaceAll("3tissot", "Tissot3");
+					break;
+				} else if (dataNum == 4) {
+					ItemInfo[0] = Integer.toString(dataNum);
+					ItemInfo[1] = itemKindLower.replaceAll("4tissot", "Tissot4");
+					break;
+				} else if (dataNum == 5) {
+					ItemInfo[0] = Integer.toString(dataNum);
+					ItemInfo[1] = itemKindLower.replaceAll("5tissot", "Tissot5");
+					break;
+				} else if (dataNum == 6) {
+					ItemInfo[0] = Integer.toString(dataNum);
+					ItemInfo[1] = itemKindLower.replaceAll("6tissot", "Tissot6");
+					break;
+				} else if (dataNum == 7) {
+					ItemInfo[0] = Integer.toString(dataNum);
+					ItemInfo[1] = itemKindLower.replaceAll("7tissot", "Tissot7");
+					break;
+				} else if (dataNum == 8) {
+					ItemInfo[0] = Integer.toString(dataNum);
+					ItemInfo[1] = itemKindLower.replaceAll("8tissot", "Tissot8");
+					break;
+				} else if (dataNum == 9) {
+					ItemInfo[0] = Integer.toString(dataNum);
+					ItemInfo[1] = itemKindLower.replaceAll("9tissot", "Tissot9");
+					break;
+				}
+			}
+
+		}
+		
+		// 10 ~ 20 10번째 시계상품, 금반지 관련 상품
+		for (int j = 0; j < dataNum2; j++) {
+			if (dataNum2 >= 10) {
+				
+				itemLog.info("=================================");
+				itemLog.info("아이템 dataNum: " + Integer.toString(dataNum2));
+				itemLog.info("=================================");
+
+				if (dataNum2 == 10) {
+					ItemInfo[0] = Integer.toString(dataNum2);
+					ItemInfo[1] = itemKindLower.replaceAll("10tissot", "Tissot10");
+					break;
+				} else if (dataNum2 == 11) {
+					ItemInfo[0] = Integer.toString(dataNum2);
+					ItemInfo[1] = itemKindLower.replaceAll("11gold", "Gold1");
+					break;
+				} else if (dataNum2 == 12) {
+					ItemInfo[0] = Integer.toString(dataNum2);
+					ItemInfo[1] = itemKindLower.replaceAll("12gold", "Gold2");
+					break;
+				} else if (dataNum2 == 13) {
+					ItemInfo[0] = Integer.toString(dataNum2);
+					ItemInfo[1] = itemKindLower.replaceAll("13gold", "Gold3");
+					break;
+				} else if (dataNum2 == 14) {
+					ItemInfo[0] = Integer.toString(dataNum2);
+					ItemInfo[1] = itemKindLower.replaceAll("14gold", "Gold4");
+					break;
+				} else if (dataNum2 == 15) {
+					ItemInfo[0] = Integer.toString(dataNum2);
+					ItemInfo[1] = itemKindLower.replaceAll("15gold", "Gold5");
+					break;
+				} else if (dataNum2 == 16) {
+					ItemInfo[0] = Integer.toString(dataNum2);
+					ItemInfo[1] = itemKindLower.replaceAll("16gold", "Gold6");
+					break;
+				} else if (dataNum2 == 17) {
+					ItemInfo[0] = Integer.toString(dataNum2);
+					ItemInfo[1] = itemKindLower.replaceAll("17gold", "Gold7");
+					break;
+				} else if (dataNum2 == 18) {
+					ItemInfo[0] = Integer.toString(dataNum2);
+					ItemInfo[1] = itemKindLower.replaceAll("18gold", "Gold8");
+					break;
+				} else if (dataNum2 == 19) {
+					ItemInfo[0] = Integer.toString(dataNum2);
+					ItemInfo[1] = itemKindLower.replaceAll("19gold", "Gold9");
+					break;
+				} else if (dataNum2 == 20) {
+					ItemInfo[0] = Integer.toString(dataNum2);
+					ItemInfo[1] = itemKindLower.replaceAll("20gold", "Gold10");
+					break;
+				}
+
+			}
+		}
+		return ItemInfo;
+	}
+
+}

@@ -1,0 +1,74 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<div class="main_container container">
+	<div class="row">
+		<div class="col-md-3 col-xs-3 main_remote_wrapper">
+			<div class="main_remote">
+				<ul class="main_remote_ul">
+					<li><a href="#Scroll_before" class="upArrow"></a></li>
+					<li><a href="javascript:pageDepth(1)" id="Popular_item">Popular Item</a></li>
+					<li><a href="javascript:pageDepth(2)" id="MemberReg">MemberRegister</a></li>
+					<li><a href="javascript:pageDepth(3)" id="MemberLogin">Login</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-md-9 col-xs-9">
+			<div class="row">
+				<div class="col-md-4 col-xs-4">
+					<a href="#" id="watch_trigger">
+					  <img src="/Photo/watch/watchBackground.jpg"
+						class="main_p1 img-responsive" />
+					</a>
+					<p class="watch_p">시계(WATCH)</p>
+				</div>
+				<div class="col-md-4 col-xs-4">
+					<a href="#" id="shoes_trigger">
+					  <img src="/Photo/shoes/shoesBackground.jpg" class="main_p2 img-responsive" />
+					</a>
+					<p class="watch_p">신발(SHOES)</p>
+				</div>
+				<div class="col-md-4 col-xs-4">
+					<a href="#" id="board_trigger">
+					  <img src="/Photo/Inquiry/qaBackground.png" class="main_p3 img-responsive" />
+					</a>
+					<p class="watch_p">Q&amp;A</p>
+
+					<div class="clearfix"></div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row carousel_row">
+		<div class="col-md-12 col-xs-12">
+			<div id="main_carousel" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators indicator">
+					<li data-target="#main_carousel" data-slide-to="0" class="active"></li>
+					<li data-target="#main_carousel" data-slide-to="1"></li>
+					<li data-target="#main_carousel" data-slide-to="2"></li>
+				</ol>
+
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner carousel_img_wrapper">
+					<div class="item active"></div>
+					<div class="item"></div>
+					<div class="item"></div>
+				</div>
+
+				<!-- Left and right controls
+				<a class="left carousel-control" href="#main_carousel" data-slide="prev">
+				    <span class="glyphicon glyphicon-chevron-left"></span> 
+				    <span class="sr-only">Previous</span>
+				</a> 
+				<a class="right carousel-control" href="#main_carousel" data-slide="next">
+				    <span class="glyphicon glyphicon-chevron-right"></span> 
+				    <span class="sr-only">Next</span>
+				</a> -->
+			</div>
+		</div>
+	</div>
+</div>
+
+<jsp:include page="/PageDepth/Footer.html" />

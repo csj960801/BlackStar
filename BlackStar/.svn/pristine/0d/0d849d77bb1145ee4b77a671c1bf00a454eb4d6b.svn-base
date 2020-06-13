@@ -1,0 +1,62 @@
+package com.BlackStar.BlackStarService;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.BlackStar.BlackStarDAO.BlackStarDAO;
+import com.BlackStar.BlackStarVO.BlackStarBookVO;
+import com.BlackStar.BlackStarVO.BlackStarInquiryVO;
+import com.BlackStar.BlackStarVO.BlackStarLoginVO;
+import com.BlackStar.BlackStarVO.BlackStarRegistVO;
+
+@Service
+public class BlackStarService {
+
+	private Logger servicelog = LoggerFactory.getLogger(this.getClass());
+
+	@Autowired
+	private BlackStarDAO dao;
+
+	/**
+	 * 회원가입
+	 * 
+	 * @param regvo
+	 * @return
+	 */
+	public boolean Register(BlackStarRegistVO regvo) {
+		return dao.Register(regvo);
+	}
+
+	/**
+	 * 로그인
+	 * 
+	 * @param logvo
+	 * @return
+	 */
+	public BlackStarLoginVO Login(BlackStarLoginVO logvo) {
+		return dao.Login(logvo);
+	}
+
+	/**
+	 * 문의게시판
+	 * 
+	 * @param inquiryvo
+	 * @return
+	 */
+	public boolean inquiry(BlackStarInquiryVO inquiryvo) {
+		return dao.inquiry(inquiryvo);
+	}
+
+	/**
+	 * 예약정보 저장
+	 * 
+	 * @param bookvo
+	 * @return
+	 */
+	public boolean book(BlackStarBookVO bookvo) {
+		return dao.book(bookvo);
+	}
+
+}

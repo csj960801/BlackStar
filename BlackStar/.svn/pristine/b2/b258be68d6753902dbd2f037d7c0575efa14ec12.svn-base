@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.InquiryMapper">
+
+	<resultMap id="inquiry" type="inquiryvo">
+		<result property="inquiry_name" column="name" />
+		<result property="inquiry_reason" column="reason" />
+		<result property="inquiry_content" column="content" />
+	</resultMap>
+
+	<!-- 문의게시판 데이터 INSERT -->
+	<insert id="inquiry_insert" parameterType="inquiryvo">
+		INSERT INTO inquiryboard(name,reason,content)
+		VALUES(#{inquiry_name},#{inquiry_reason},#{inquiry_content})
+	</insert>
+
+	<!--문의 데이터 출력 -->
+	<select resultMap="inquiry" id="inquirySelect">
+		SELECT * FROM inquiryboard
+	</select>
+
+	<!-- 문의데이터 삭제 -->
+	<delete id="delinquiry" parameterType="String">
+		DELETE FROM inquiryboard WHERE NAME=#{name}
+	</delete>
+</mapper>

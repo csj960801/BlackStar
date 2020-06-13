@@ -1,0 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+	
+<!-- 상품목록으로 이동(WEB-INF/views -> webapp/PageDepth)  -->
+<jsp:forward page="/PageDepth/ItemInfo/${itemparam}.jsp" />

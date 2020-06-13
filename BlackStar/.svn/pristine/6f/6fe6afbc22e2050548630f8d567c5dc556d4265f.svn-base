@@ -1,0 +1,104 @@
+/**
+ * IE8이하 브라우저 BLOCK
+ */
+$(function() {
+	if (window.addEventListener) {
+
+		$.ajax({
+			url : "/PageDepth/index/main.jsp",
+			dataType : "html",
+			type : "post",
+			success : function(main) {
+				$(".Main_category_wrapper").html(main);
+			},
+			error : function() {
+				alert("메인 페이지를 불러오지 못하였습니다.");
+			}
+		});
+
+		// 로그인 담당 함수
+		login_func();
+
+		// 회원가입 담당 함수
+		regist_func();
+	} else {
+		alert("지원하지않는 브라우저 버전입니다.");
+		return false;
+	}
+});
+
+/**
+ * main.jsp에서 서브메뉴에 있는 페이지경로 지정 용도
+ * 
+ * @param pageNum
+ * @returns
+ */
+function pageDepth(pageNum) {
+	if (pageNum == 1) {
+		window.location.href = "#";
+	}
+	//회원가입
+	if (pageNum == 2) {
+		window.location.href = "/PageDepth/MemberReg/MemberReg.jsp";
+	}
+	//로그인
+	if (pageNum == 3) {
+		window.location.href = "/PageDepth/MemberLogin/MemberLogin.jsp";
+	}
+	
+};
+
+/**
+ * 로그인 담당 함수
+ * 
+ * @returns
+ */
+function login_func() {
+	$("#loginBtn").click(function() {
+	var loginid = document.getElementById("loginid").value;
+	var loginsecret = document.getElementById("loginsecret").value;
+
+	//var dataArr = [ loginid, loginsecret ];
+	if ((loginid == undefined) || (loginid.length <= 1)) {
+			alert("입력된 아이디 값이 없습니다.");
+			document.getElementById("loginid").focus();
+			return false;		 
+	} else if(loginsecret.length <= 1){
+			alert("입력된 값이 없습니다.");
+			document.getElementById("loginsecret").focus()	
+			return false;
+	}
+	document.getElementById("login_frm").setAttribute("method", "post");
+	document.getElementById("login_frm").setAttribute("action","/User/login.do");
+
+	});
+}
+/**
+ * 회원가입 담당 함수
+ * 
+ * @returns
+ */
+function regist_func() {
+
+	$("#regBtn").click(function() {
+		var id = document.getElementById("id").value;
+		var secret = document.getElementById("secret").value;
+		//var dataArr = [id, secret];
+			    
+		if (id.length <= 1) {
+			    console.log("id: " , id);
+				alert("아이디를 다시 확인해주세요.");
+				document.getElementById("id").focus();
+				return false;
+		}
+		else if((secret.length == 13) || (secret.length <= 3)){
+				alert("secret입력자리는 4자리이상 12글자의 본인만 알고있는 암호를 설정하도록 합니다.");
+				document.getElementById("secret").focus();
+				return false;			
+		}
+		
+		document.getElementById("reg_frm").setAttribute("method","post");
+		document.getElementById("reg_frm").setAttribute("action","/User/register.do");
+
+	});
+};

@@ -1,0 +1,55 @@
+package com.BlackStar.Interceptor;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+
+import com.BlackStar.BlackStarVO.*;
+
+/**
+ * 관리자 로그인, 보안로그인 담당 인터셉터 클래스
+ * 
+ * @author CSJ
+ *
+ */
+public class BlackStarInterceptor extends HandlerInterceptorAdapter {
+
+	private Logger interceptorLog = LoggerFactory.getLogger(this.getClass());
+
+	/**
+	 * 1) 컨트롤러에 도달하기전 데이터 검사
+	 */
+	@Override
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+
+		boolean adminFlag = true;
+		if (request.getParameter("loginid").equals("CsJ") && request.getParameter("loginsecret").equals("0801")) {
+			// adminFlag = true;
+			interceptorLog.info("============================");
+			interceptorLog.info("관리자 접속확인");
+			interceptorLog.info("관리자 id: " + request.getParameter("loginid"));
+			interceptorLog.info("관리자 pw: " + request.getParameter("loginsecret"));
+			interceptorLog.info("============================");
+		}
+		return adminFlag;
+	}
+
+	@Override
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
+			ModelAndView modelAndView) throws Exception {
+		// TODO Auto-generated method stub
+		super.postHandle(request, response, handler, modelAndView);
+	}
+
+	@Override
+	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
+			throws Exception {
+		// TODO Auto-generated method stub
+		super.afterCompletion(request, response, handler, ex);
+	}
+}

@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+/*(PC)시계 카테고리 전용 CSS*/
+@media ( min-width :1025px) {
+	.watch_wrapper .blackstar_img {
+		width: 450px;
+		height: 300px;
+		margin: auto;
+	}
+	.watch_wrapper .watch_h1 {
+		text-align: center;
+		font-size: 20px;
+		letter-spacing: 2px;
+	}
+	.watch_wrapper .watch_h1 span.watch_span {
+		display: block;
+		padding: 15px 0;
+		font-size: 30px;
+		width: 50%;
+		margin: auto;
+		-webkit-transition: all 0.5s ease;
+		-ms-transition: all 0.5s ease;
+		-o-transition: all 0.5s ease;
+		-moz-transition: all 0.5s ease;
+	}
+	.watch_wrapper:hover .watch_h1 {
+		padding: 25px 0 !important;
+		border-bottom: 1px solid #ddd;
+		-ms-transition: all 0.5s ease-in-out;
+		-o-transition: all 0.5s ease-in-out;
+		-moz-transition: all 0.5s ease-in-out;
+		-webkit-transition: all 0.5s ease-in-out;
+	}
+	.watch_wrapper .watch_box {
+		margin-bottom: 35px;
+	}
+	.watch_wrapper .watch_trigger img {
+		-webkit-transition: all 0.5s ease;
+		-ms-transition: all 0.5s ease;
+		-o-transition: all 0.5s ease;
+		-moz-transition: all 0.5s ease;
+	}
+	.watch_wrapper .watch_box .watch1:hover .watch_p {
+		-webkit-transition: all 0.5s ease-in-out;
+		-ms-transition: all 0.5s ease-in-out;
+		-o-transition: all 0.5s ease-in-out;
+		-moz-transition: all 0.5s ease-in-out;
+	}
+	p.watch_p {
+		text-align: center;
+		margin: 15px 0;
+	}
+}

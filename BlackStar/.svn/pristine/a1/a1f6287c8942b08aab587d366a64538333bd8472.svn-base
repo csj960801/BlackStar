@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+@media ( max-width :767px) {
+	.inquiry_wrapper, .book_wrapper {
+		height: 700px;
+	}
+	.inquiry_table_wrapper .inquiry_table {
+		margin: auto;
+		width: 65%;
+	}
+	.inquiry_table_wrapper .inquiry_table .inquiry_span {
+		float: left;
+		display: inline-block;
+		padding: 5px 10px;
+	}
+	.inquiry_table_wrapper dl.inquiry_table dd {
+		padding: 10px 0;
+		border-bottom: 1px solid #ddd;
+	}
+	.book_date_wrapper label[for='ondate_label'], .book_date_wrapper label[for='outdate_label'],
+		.book_table .book_span {
+		display: inline-block;
+		float: left;
+		margin: 0;
+		padding: 5px 10px;
+	}
+	.book_date_wrapper label[for='ondate_label']::before, .book_date_wrapper label[for='outdate_label']::before,
+		.book_table .book_span::before {
+		content: "*";
+		padding: 0 2px;
+		color: #ef0b35;
+	}
+	.book_table .book_content {
+		
+	}
+	.book_table dd {
+		padding: 5px 0;
+	}
+}

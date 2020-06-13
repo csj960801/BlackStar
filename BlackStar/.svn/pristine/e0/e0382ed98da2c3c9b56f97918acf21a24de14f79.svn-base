@@ -1,0 +1,82 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<title>★-WATCH</title>
+<jsp:include page="/PageDepth/addResource.html" />
+</head>
+<body>
+	<div class="watch_wrapper">
+		<div class="container watch_container">
+
+			<div class="row">
+				<div class="col-md-12 col-xs-12">
+				<a href="/">
+					<img src="/Photo/favicon/Black Star-logo-black.png" class="blackstar_img img-responsive" />
+				</a>	
+					<h1 class="watch_h1">
+						Elegance For Your Time <span class="watch_span">WATCH</span>
+					</h1>
+				</div>
+
+				<div class="clearfix"></div>
+
+				<div class="col-md-3 col-xs-4 watch_box">
+					<a href="#" class="watch_trigger"> <img
+						src="/Photo/watch/omega.jpg" class="img-responsive watch1" />
+					</a>
+					<p class="watch_p">OMEGA</p>
+				</div>
+				<div class="col-md-3 col-xs-4 watch_box">
+					<a href="#" class="watch_trigger"> <img
+						src="/Photo/watch/Rolex DeepSea.jpg" class="img-responsive watch2" />
+					</a>
+					<p class="watch_p">Rolex DeepSea</p>
+				</div>
+				<div class="col-md-3 col-xs-4 watch_box">
+					<a href="#" class="watch_trigger"> <img
+						src="/Photo/watch/Rolex Oyster.jpg" class="img-responsive watch3" />
+					</a>
+					<p class="watch_p">Rolex Oyster</p>
+				</div>
+				<div class="col-md-3 col-xs-4 watch_box">
+					<a href="#" class="watch_trigger"> <img
+						src="/Photo/watch/Rolex Oyster.jpg" class="img-responsive watch3" />
+					</a>
+					<p class="watch_p">Rolex Oyster</p>
+				</div>
+
+				<div class="clearfix visible-xs"></div>
+
+				<div class="col-md-3 col-xs-4 watch_box">
+					<a href="#" class="watch_trigger"> <img
+						src="/Photo/watch/omega.jpg" class="img-responsive watch1" />
+					</a>
+					<p class="watch_p">OMEGA</p>
+				</div>
+				<div class="col-md-3 col-xs-4 watch_box">
+					<a href="#" class="watch_trigger"> <img
+						src="/Photo/watch/Rolex DeepSea.jpg" class="img-responsive watch2" />
+					</a>
+					<p class="watch_p">Rolex DeepSea</p>
+				</div>
+				<div class="col-md-3 col-xs-4 watch_box">
+					<a href="#" class="watch_trigger"> <img
+						src="/Photo/watch/Rolex Oyster.jpg" class="img-responsive watch3" />
+					</a>
+					<p class="watch_p">Rolex Oyster</p>
+				</div>
+				<div class="col-md-3 col-xs-4 watch_box">
+					<a href="#" class="watch_trigger"> <img
+						src="/Photo/watch/Rolex Oyster.jpg" class="img-responsive watch3" />
+					</a>
+					<p class="watch_p">Rolex Oyster</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<jsp:include page="/PageDepth/Footer.html" />
+</body>
+</html>

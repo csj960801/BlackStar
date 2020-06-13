@@ -1,0 +1,68 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<title>★-Book</title>
+<jsp:include page="/PageDepth/addResource.html" />
+<%@include file="/PageDepth/loginYN.jsp"  %>
+</head>
+<body>
+	<div class="book_wrapper">
+		<div class="book_container container">
+			<div class="book_row row">
+				<div class="col-md-12 col-xs-12 watch_title_box">
+					<a href="/" class="book_a"> 
+					 <img src="/Photo/favicon/Black Star-logo-black.png" class="blackstar_img img-responsive" />
+					</a>
+					<h1 class="watch_h1">
+						Waiting Your Choice<span class="watch_span">Book</span>
+					</h1>
+				</div>
+
+				<div class="clearfix"></div>
+
+				<div class="col-md-12 col-xs-12 form-group">
+					<form name="bookFrm" id="bookFrm">
+						<div class="row book_row">
+							<div class="col-md-6 col-xs-6">
+								<div class="book_date_wrapper">
+									<label for="ondate_label">예약 시작일</label> 
+									<input type="date" class="form-control book_ondate" id="book_ondate" name="book_ondate" />
+								</div>
+							</div>
+							<div class="col-md-6 col-xs-6">
+								<div class="book_date_wrapper">
+									<label for="outdate_label">예약 마감일</label> 
+									<input type="date" class="form-control book_outdate" id="book_outdate" name="book_outdate" disabled="disabled"/>
+								</div>
+							</div>
+
+                            <div class="clearfix"></div>
+
+							<div class="col-md-12 col-xs-12">
+								<dl class="book_table">
+									<dt class="book_tbody">&nbsp;</dt>
+									<dd>
+										<span class="book_span">성함(ID)</span> 
+										<input type="text" autocomplete="off" class="book_name form-control" name="book_name">
+									</dd>
+									<dd>
+										<span class="">문의내용</span>
+										<textarea autocomplete="off" name="book_content" cols="15" rows="10" class="book_content form-control"></textarea>
+									</dd>
+									<dd>
+										<button id="bookingBtn" class="btn btn-default">예약</button>
+									</dd>
+								</dl>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<jsp:include page="/PageDepth/Footer.html" />
+</body>
+</html>

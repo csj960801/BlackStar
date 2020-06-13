@@ -1,0 +1,335 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: Sentinel;
+	src: local(Sentinel);
+	src: url(/css&js/fonts/Sentinel.ttf);
+}
+
+* {
+	font-family: Sentinel;
+	font-size: 16px;
+}
+
+body, html {
+	overflow-x: hidden;
+}
+
+li, ul, ol {
+	list-style: none;
+}
+
+a:hover, a {
+	text-decoration: none;
+}
+
+/*
+##Device = Laptops, Desktops
+##Screen = B/w 1025px to 1280px
+##Device = 랩탑, 데스크탑
+##Screen = 1025px에서 1280px 사이
+*/
+@media ( min-width : 1025px) {
+	.Scroll_before_wrapper {
+		position: relative;
+		height: 1100px;
+		border-bottom: 1px solid #ddd;
+	}
+	.Scroll_before_wrapper:hover .Scroll_before_h1 {
+		padding: 20px 0;
+		left: 30%;
+		top: 0;
+		-webkit-transition: all 0.4s ease-in-out;
+		-moz-transition: all 0.4s ease-in-out;
+		-ms-transition: all 0.4s ease-in-out;
+		-o-transition: all 0.4s ease-in-out;
+	}
+	.Scroll_before_h1 {
+		text-align: center;
+		position: absolute;
+		left: 30%;
+		top: -180px;
+		-webkit-transition: all 0.4s ease;
+		-moz-transition: all 0.4s ease;
+		-ms-transition: all 0.4s ease;
+		-o-transition: all 0.4s ease;
+	}
+	.Scroll_before_h1 .Scroll_before_span {
+		font-size: 25px;
+	}
+	.Scroll_before_h1 .Scroll_before_img1 {
+		width: 225px;
+		display: inline-block;
+	}
+	.Scroll_before_Content .Scroll_before_main {
+		cursor: pointer;
+		height: 350px;
+		width: 500px;
+		background: url(/Photo/main/main1.jpg) no-repeat center;
+		position: absolute;
+		left: 30%;
+		top: 200px;
+		-webkit-transition: all 0.4s ease;
+		-moz-transition: all 0.4s ease;
+		-ms-transition: all 0.4s ease;
+		-o-transition: all 0.4s ease;
+	}
+	.Scroll_before_Content .Scroll_before_main:hover {
+		-webkit-transition: all 0.4s ease-in-out;
+		-moz-transition: all 0.4s ease-in-out;
+		-ms-transition: all 0.4s ease-in-out;
+		-o-transition: all 0.4s ease-in-out;
+		-webkit-transform: scale(1.1);
+		-ms-transform: scale(1.1);
+		-o-transform: scale(1.1);
+		-moz-transform: scale(1.1);
+	}
+	.Scroll_before_SubContent {
+		position: relative;
+	}
+	.Scroll_before_SubContent .Scroll_before_sub1 {
+		-webkit-transition: all 0.4s ease;
+		-moz-transition: all 0.4s ease;
+		-ms-transition: all 0.4s ease;
+		-o-transition: all 0.4s ease;
+		position: absolute;
+		right: 240px;
+		top: 205px;
+	}
+	.Scroll_before_SubContent .Scroll_before_sub1 .sub_img1 {
+		border-radius: 5px;
+	}
+	.Scroll_before_SubContent .Scroll_before_sub2 {
+		position: absolute;
+		right: 240px;
+		top: 385px;
+	}
+	.Scroll_before_wrapper .Scroll_before_sub3 {
+		position: absolute;
+		top: 550px;
+		left: 30%;
+	}
+	.sub_img1, .sub_img2, .sub_img3 {
+		-webkit-transition: all 0.4s ease;
+		-moz-transition: all 0.4s ease;
+		-ms-transition: all 0.4s ease;
+		-o-transition: all 0.4s ease;
+	}
+	.sub_img1:hover, .sub_img2:hover, .sub_img3:hover {
+		z-index: 10;
+		-webkit-transition: all 0.4s ease-in-out;
+		-moz-transition: all 0.4s ease-in-out;
+		-ms-transition: all 0.4s ease-in-out;
+		-o-transition: all 0.4s ease-in-out;
+		-webkit-transform: scale(1.1);
+		-ms-transform: scale(1.1);
+		-o-transform: scale(1.1);
+		-moz-transform: scale(1.1);
+	}
+	.Main_category_wrapper {
+		position: relative;
+		height: 800px;
+	}
+	.main_remote_wrapper {
+		height: 60px;
+	}
+	.main_container {
+		display: none;
+		-ms-transition: all 0.4s ease;
+		-o-transition: all 0.4s ease;
+		-webkit-transition: all 0.4s ease;
+		-moz-transition: all 0.4s ease;
+	}
+	.Main_category_wrapper:hover .main_container {
+		display: block;
+		-moz-transition: all 0.4s ease-in-out;
+		-ms-transition: all 0.4s ease-in-out;
+		-o-transition: all 0.4s ease-in-out;
+		-webkit-transition: all 0.4s ease-in-out;
+	}
+	.Main_category_wrapper img {
+		border-radius: 100px;
+		height: 170px;
+		width: 220px;
+		margin: auto;
+		-webkit-transition: all 0.4s ease;
+		-moz-transition: all 0.4s ease;
+		-ms-transition: all 0.4s ease;
+		-o-transition: all 0.4s ease;
+	}
+	.main_p1:hover, .main_p2:hover, .main_p3:hover {
+		-webkit-transition: all 0.4s ease-in-out;
+		-moz-transition: all 0.4s ease-in-out;
+		-ms-transition: all 0.4s ease-in-out;
+		-o-transition: all 0.4s ease-in-out;
+		-webkit-transform: scale(1.1);
+		-ms-transform: scale(1.1);
+		-o-transform: scale(1.1);
+		-moz-transform: scale(1.1);
+	}
+	.Main_category_wrapper .main_p {
+		text-align: center;
+		font-size: 15px;
+		margin: 10px auto;
+		letter-spacing: 2px;
+		width: 160px;
+		padding: 5px 0;
+		background: #333;
+		color: #fff;
+		border-radius: 5px;
+	}
+	.main_remote .main_remote_ul {
+		margin: 0;
+	}
+	.main_remote .main_remote_ul li {
+		text-align: center;
+		float: left;
+		-webkit-transition: all 0.4s ease;
+		-moz-transition: all 0.4s ease;
+		-ms-transition: all 0.4s ease;
+		-o-transition: all 0.4s ease;
+		padding: 5px 20px;
+	}
+	.main_remote .main_remote_ul li:hover {
+		padding: 15px 20px;
+		border-bottom: 1px solid #ddd;
+		border-top: 1px solid #ddd;
+		-moz-transition: all 0.4s ease-in-out;
+		-ms-transition: all 0.4s ease-in-out;
+		-o-transition: all 0.4s ease-in-out;
+		-webkit-transition: all 0.4s ease-in-out;
+	}
+	.main_remote .main_remote_ul li a {
+		font-size: 20px;
+		color: #333;
+	}
+	/* .upArrow::before {
+		content: "\f062";
+		font-family: "fontAwesome";
+	}
+	.downArrow::before {
+		content: "\f063";
+		font-family: "fontAwesome";
+	} */
+	#main_carousel {
+		background: transparent;
+		border-radius: 5px;
+		margin-bottom: 40px;
+	}
+	.carousel_row .indicator li {
+		background: #333;
+		margin: 0 15px;
+	}
+	.carousel_row .indicator {
+		margin: 10px auto;
+		position: static;
+	}
+	.carousel_row .carousel_img_wrapper .item:first-child {
+		background: url("/Photo/banner/rolex.jpg") no-repeat center;
+		height: 300px;
+	}
+	.carousel_row .carousel_img_wrapper .item:nth-child(2) {
+		background: url("/Photo/banner/vans.jpg") no-repeat center;
+		height: 300px;
+	}
+	.carousel_row .carousel_img_wrapper .item:last-child {
+		background: url("/Photo/banner/gucci.jpg") no-repeat center;
+		height: 300px;
+	}
+	.sub_title_wrapper .login_img {
+		height: 300px;
+		margin: 20px auto;
+	}
+	.login_wrapper .login_table, .register_table_wrapper .register_table {
+		width: 35%;
+		margin: 20px auto;
+	}
+	.login_table .login_table_body tr th, .register_table .register_table_body tr th
+		{
+		text-align: center;
+		vertical-align: middle;
+		width: 35%;
+	}
+	#loginid, #loginsecret, #id, #secret {
+		width: 0;
+		-webkit-transition: all 0.4s ease;
+		-moz-transition: all 0.4s ease;
+		-ms-transition: all 0.4s ease;
+		-o-transition: all 0.4s ease;
+	}
+	tbody.login_table_body:hover #loginid, tbody.login_table_body:hover #loginsecret,
+		tbody.register_table_body:hover #id, tbody.register_table_body:hover #secret
+		{
+		width: 100%;
+		-moz-transition: all 0.4s ease-in-out;
+		-ms-transition: all 0.4s ease-in-out;
+		-o-transition: all 0.4s ease-in-out;
+		-webkit-transition: all 0.4s ease-in-out;
+	}
+	.register_table_foot .user_check_wrapper, .login_table_foot .user_check_wrapper
+		{
+		padding: 15px 0;
+	}
+	.register_table_foot .user_check_wrapper a.login_a, .login_table_foot .user_check_wrapper a.login_a
+		{
+		color: #333;
+	}
+	.register_table_foot .user_check_wrapper .user_check_p,
+		.login_table_foot .user_check_wrapper .user_check_p {
+		float: left;
+		padding: 0 15px 0 0;
+	}
+	.item_detail_Wrapper {
+		margin-top: 30px;
+		height: 850px;
+	}
+	.item_detail_Wrapper .item_desc .item_title_ol {
+		padding: 0;
+		text-align: center;
+	}
+	.item_detail_Wrapper .item_desc .item_title_ol li {
+		font-size: 15px;
+		padding: 20px 0;
+	}
+	.item_detail_Wrapper .item_desc .item_title_ol li .item_emphasize {
+		border-bottom: 1px solid #ddd;
+	}
+	.item_detail_Wrapper .item_desc .item_title_ol li::before {
+		content: "*";
+		padding: 0 5px;
+		font-weight: 750;
+	}
+	.img_wrapper {
+		text-align: center;
+	}
+	.img_wrapper .item_img {
+		width: 350px;
+	}
+	.main_remote {
+		
+	}
+	.admin_table .admin_table_head tr th, 
+	.admin_table .admin_table_body tr td, 
+	.admin_table {
+		vertical-align: middle;
+		text-align: center;
+	}
+	.footer {
+		background: #333;
+		width: 100%;
+		position: fixed;
+		top: 95%;
+	}
+	.footer_wrap .footer_ul li {
+		float: left;
+		padding: 15px 5px;
+		color: #fff;
+	}
+	.footer li.emphasize {
+		font-weight: 700;
+	}
+}
+
+/* tablet */
+@media ( max-width :992px) {
+}

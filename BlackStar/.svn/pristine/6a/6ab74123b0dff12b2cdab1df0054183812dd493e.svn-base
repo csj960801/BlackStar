@@ -1,0 +1,29 @@
+package com.BlackStar.Item;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+public class Item {
+	private Logger itemLog = LoggerFactory.getLogger(Item.class);
+
+	/**
+	 * 
+	 * @param itemKind
+	 * @return
+	 */
+	public String ItemDetailFunction(String itemKind) {
+		String itemKindLower = itemKind.toLowerCase();
+		String[] splitData = itemKindLower.split("");
+
+		int dataNum = Integer.parseInt(splitData[0]);
+
+		if (itemKindLower.indexOf("omega") > 0) {
+			itemKindLower = dataNum + "omega";
+		} else if (itemKindLower.indexOf("rolex") > 0) {
+			itemKindLower = dataNum + "rolex";
+		}
+
+		return itemKindLower;
+	}
+
+}

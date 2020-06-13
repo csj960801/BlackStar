@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<title>★-상세정보</title>
+<jsp:include page="/PageDepth/addResource.html" />
+</head>
+<body>
+	<div class="item_detail_Wrapper">
+		<div class="conatainer">
+			<div class="row">
+				<div class="col-md-12 col-xs-12">
+					<div class="itemDetail_show"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<jsp:include page="/PageDepth/Footer.html" />
+</body>
+</html>

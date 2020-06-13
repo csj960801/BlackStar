@@ -1,0 +1,49 @@
+package com.BlackStar.BlackStarService;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.BlackStar.BlackStarDAO.BlackStarDAO;
+import com.BlackStar.BlackStarVO.BlackStarInquiryVO;
+import com.BlackStar.BlackStarVO.BlackStarLoginVO;
+import com.BlackStar.BlackStarVO.BlackStarRegistVO;
+
+@Service
+public class BlackStarService {
+
+	private Logger servicelog = LoggerFactory.getLogger(this.getClass());
+
+	@Autowired
+	private BlackStarDAO dao;
+
+	/**
+	 * �쉶�썝媛��엯
+	 * 
+	 * @param regvo
+	 * @return
+	 */
+	public boolean Register(BlackStarRegistVO regvo) {
+		return dao.Register(regvo);
+	}
+
+	/**
+	 * 濡쒓렇�씤
+	 * 
+	 * @param logvo
+	 * @return
+	 */
+	public BlackStarLoginVO Login(BlackStarLoginVO logvo) {
+		return dao.Login(logvo);
+	}
+
+	/**
+	 * 
+	 * @param inquiryvo
+	 * @return
+	 */
+	public boolean inquiry(BlackStarInquiryVO inquiryvo) {
+		return dao.inquiry(inquiryvo);
+	}
+}

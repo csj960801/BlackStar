@@ -1,0 +1,210 @@
+/**
+ * IE8이하 브라우저 BLOCK
+ */
+$(function() {
+	if (window.addEventListener) {
+
+		$.ajax({
+			url : "/PageDepth/index/main.jsp",
+			dataType : "html",
+			type : "post",
+			success : function(main) {
+				$(".Main_category_wrapper").html(main);
+			},
+			error : function() {
+				alert("메인 페이지를 불러오지 못하였습니다.");
+			}
+		});
+
+		// 로그인 담당 함수
+		login_func();
+
+		// 회원가입 담당 함수
+		regist_func();
+
+		// 문의게시판 & 예약기능 담당 함수
+		inquiryBook();
+
+	} else {
+		alert("지원하지않는 브라우저 버전입니다.");
+		return false;
+	}
+});
+
+/**
+ * main.jsp에서 서브메뉴에 있는 페이지경로 지정 용도
+ * 
+ * @param pageNum
+ * @returns
+ */
+function pageDepth(pageNum) {
+	// 회원가입
+	if (pageNum == 1) {
+		window.location.href = "/PageDepth/MemberReg/MemberReg.jsp";
+	}
+	// 로그인
+	if (pageNum == 2) {
+		window.location.href = "/PageDepth/MemberLogin/MemberLogin.jsp";
+	}
+	// 로그아웃
+	if (pageNum == 3) {
+		window.location.href = "/User/logout.do?logout=y";
+	}
+	// 인기상품
+	if (pageNum == 4) {
+		window.location.href = "#";
+	}
+
+};
+
+/**
+ * 로그인 담당 함수
+ * 
+ * @returns
+ */
+function login_func() {
+	$("#loginBtn").click(
+			function() {
+				var loginid = document.getElementById("loginid").value;
+				var loginsecret = document.getElementById("loginsecret").value;
+
+				// var dataArr = [ loginid, loginsecret ];
+				if ((loginid == undefined) || (loginid.length <= 1)) {
+					alert("입력된 아이디 값이 없습니다.");
+					document.getElementById("loginid").focus();
+					return false;
+				} else if (loginsecret.length <= 1) {
+					alert("입력된 값이 없습니다.");
+					document.getElementById("loginsecret").focus()
+					return false;
+				}
+				document.getElementById("login_frm").setAttribute("method",
+						"post");
+				document.getElementById("login_frm").setAttribute("action",
+						"/User/login.do");
+
+			});
+}
+/**
+ * 회원가입 담당 함수
+ * 
+ * @returns
+ */
+function regist_func() {
+
+	$("#regBtn").click(
+			function() {
+				var id = document.getElementById("id").value;
+				var secret = document.getElementById("secret").value;
+				// var dataArr = [id, secret];
+
+				if (id.length <= 1) {
+					console.log("id: ", id);
+					alert("아이디를 다시 확인해주세요.");
+					document.getElementById("id").focus();
+					return false;
+				} else if ((secret.length == 13) || (secret.length <= 3)) {
+					alert("secret입력자리는 4자리이상 12글자의 본인만 알고있는 암호를 설정하도록 합니다.");
+					document.getElementById("secret").focus();
+					return false;
+				}
+
+				document.getElementById("reg_frm").setAttribute("method",
+						"post");
+				document.getElementById("reg_frm").setAttribute("action",
+						"/User/register.do");
+
+			});
+};
+
+/**
+ * 문의게시판 & 예약기능
+ * 
+ * @returns
+ */
+function inquiryBook() {
+
+	// 문의
+	$("#inquiryBtn").on("click",function() {
+				var boardname = document.querySelector(".inquiry_name");
+				var boardreason = document.querySelector(".inquiry_reason");
+				var boardcontent = document.querySelector(".inquiry_content");
+
+				if (boardname.value == null || boardname.value.length <= 1) {
+					alert("이름을 다시 확인해주세요.");
+					boardname.focus();
+					return false;
+				} else if (boardreason.value == null
+						|| boardreason.value.length <= 1) {
+					alert("사유를 다시 확인해주세요.");
+					boardreason.focus();
+					return false;
+				} else if (boardcontent.value == null
+						|| boardcontent.value.length <= 1) {
+					alert("내용을 다시 확인해주세요.");
+					boardcontent.focus();
+					return false;
+				}
+
+				$("#inquiryFrm").attr("action", "/board/Inquiry.do");
+				$("#inquiryFrm").attr("method", "post");
+			});
+
+	// 예약
+	$("#bookingBtn").on("click",function() {
+						var bookOndate = document.getElementById("book_ondate");
+						var bookOutdate = document
+								.getElementById("book_outdate");
+						var bookName = document.querySelector(".book_name");
+						// var bookContent =
+						// document.querySelector(".book_content");
+
+						if (bookOndate.value.length == 0) {
+							alert("예약일을 다시 확인해주세요.");
+							bookOndate.focus();
+							return false;
+						} else if (bookOutdate.value.length == 0) {
+							alert("예약일을 다시 확인해주세요.");
+							bookOutdate.focus();
+							return false;
+						} else if (Date.parse(bookOndate.value) > Date
+								.parse(bookOutdate.value)) {
+							alert("종료일이 시작일보다 길어야합니다.");
+							return false;
+						} else if (bookName.value == null
+								|| bookName.value.length <= 1) {
+							alert("이름을 다시 확인해주세요.");
+							bookName.focus();
+							return false;
+						}
+
+						$("#bookFrm").attr("action", "/board/book.do");
+						$("#bookFrm").attr("method", "post");
+					});
+
+	$("#book_ondate").click(function() {
+		$("#book_outdate").prop("disabled", "");
+	});
+
+};
+
+/**
+ * 관리자 전용 페이지 담당 함수
+ * @param adminClickCnt
+ * @returns
+ */
+function adminFunc(adminClickCnt){
+	var adminfrm = document.getElementById("adminFrm");
+	if(adminClickCnt == 1){
+		//window.location.href="/Admin/adminInquiry.do";
+	   adminfrm.setAttribute("action","/Admin/adminInquiry.do");
+	   adminfrm.setAttribute("method","post");
+	   adminfrm.submit();
+	}
+	else if(adminClickCnt == 2){
+		//window.location.href="/Admin/adminBook.do";
+	   adminfrm.setAttribute("action","/Admin/adminBook.do");
+	   adminfrm.setAttribute("method","post");	   
+	   adminfrm.submit();
+	}
+};

@@ -1,0 +1,151 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<script>
+	window.onload = function() {
+		//시계
+		var watch = document.querySelector(".watch_col");
+		watch.onmouseover = function() {
+			document.querySelector(".watch_col .watch_p").innerHTML = "시계";
+		};
+		watch.onmouseout = function() {
+			document.querySelector(".watch_col .watch_p").innerHTML = "WATCH";
+		};
+
+		//금 상품
+		var shoes = document.querySelector(".gold_col");
+		shoes.onmouseover = function() {
+			document.querySelector(".gold_col .watch_p").innerHTML = "금 제품";
+		};
+		shoes.onmouseout = function() {
+			document.querySelector(".gold_col .watch_p").innerHTML = "GOLD";
+		};
+
+		//문의게시판
+		var inquiry = document.querySelector(".inquiry_col");
+		inquiry.onmouseover = function() {
+			document.querySelector(".inquiry_col .watch_p").innerHTML = "문의게시판";
+		};
+		inquiry.onmouseout = function() {
+			document.querySelector(".inquiry_col .watch_p").innerHTML = "INQUIRY";
+		};
+
+	};
+</script>
+<div class="main_container container-fluid">
+	<div class="row carousel_row">
+		<div class="col-xs-12 main_remote_wrapper">
+			<div class="main_remote">
+				<div class="navbar-header">
+					<button type="button" class="hamburgerBtn navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#memberFunc">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collapse navbar-collapse" id="memberFunc">
+					<ul class="nav navbar-nav navbar-right main_remote_ul">
+						<c:if test="${sessionScope.login == null && sessionScope.admin == null}">
+							<li class="dropdown">
+							   <a href="#" onclick="javascript:pageDepth(1)" class="dropdown-toggle" data-toggle="dropdown" id="MemberReg">MemberRegister</a></li>
+							<li class="dropdown">
+							   <a href="#" onclick="javascript:pageDepth(2)" class="dropdown-toggle" data-toggle="dropdown" id="MemberLogin">Login</a></li>
+						</c:if>
+						<c:choose>
+							<c:when test="${sessionScope.login != null}">
+								<li><a href="javascript:pageDepth(3)" id="logout">Welcome! ${sessionScope.login}.</a></li>
+								<li><a href="javascript:pageDepth(4)" id="Popular_item">PopularItem</a></li>
+							</c:when>
+						</c:choose>
+						<c:choose>
+							<c:when test="${sessionScope.admin != null}">
+								<li><a href="javascript:pageDepth(3)" id="adminLog">관리자 접속중 ${sessionScope.admin}.</a></li>
+							</c:when>
+						</c:choose>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="clearfix"></div>
+
+		<div class="col-md-12 col-xs-12">
+			<div id="main_carousel" class="carousel slide" data-ride="carousel">
+				<!-- Indicators -->
+				<ol class="carousel-indicators indicator">
+					<li data-target="#main_carousel" data-slide-to="0" class="active"></li>
+					<li data-target="#main_carousel" data-slide-to="1"></li>
+					<li data-target="#main_carousel" data-slide-to="2"></li>
+				</ol>
+
+				<!-- Wrapper for slides -->
+				<div class="carousel-inner carousel_img_wrapper">
+					<div class="item active"></div>
+					<div class="item"></div>
+					<div class="item"></div>
+				</div>
+
+				<!-- Left and right controls
+				<a class="left carousel-control" href="#main_carousel" data-slide="prev">
+				    <span class="glyphicon glyphicon-chevron-left"></span> 
+				    <span class="sr-only">Previous</span>
+				</a> 
+				<a class="right carousel-control" href="#main_carousel" data-slide="next">
+				    <span class="glyphicon glyphicon-chevron-right"></span> 
+				    <span class="sr-only">Next</span>
+				</a> -->
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12 col-xs-12">
+			<div class="row">
+				<c:if test="${sessionScope.admin != null}">
+				  <form id="adminFrm" name="adminFrm">
+					<div class="inquiry_col col-md-6 col-xs-6">
+						<a href="javascript:adminFunc(1)" id="inquiry_trigger">
+						   <img src="/Photo/Inquiry/qaBackground.png" class="inquiry_p1 img-responsive" />
+						</a>
+						<p class="main_p">문의게시글</p>
+					</div>
+					<div class="book_col col-md-6 col-xs-6">
+						<a href="javascript:adminFunc(2)" id="book_trigger">
+						   <img src="/Photo/Inquiry/qaBackground.png" class="book_p1 img-responsive" />
+						</a>
+						<p class="main_p">예약게시글</p>
+					</div>
+				  </form>
+				</c:if>
+				<c:choose>
+					<c:when test="${sessionScope.admin == null}">
+						<div class="watch_col col-md-4 col-xs-4">
+							<a href="/PageDepth/watch/watch.jsp" id="watch_trigger"> 
+							 <img src="/Photo/watch/watchBackground.jpg" class="main_p1 img-responsive" />
+							</a>
+							<p class="main_p">WATCH</p>
+						</div>
+
+						<div class="gold_col col-md-4 col-xs-4">
+							<a href="/PageDepth/gold/gold.jsp" id="gold_trigger"> <img
+								src="/Photo/gold/ring/11.jpg" class="main_p2 img-responsive" />
+							</a>
+							<p class="main_p">GOLD</p>
+						</div>
+
+						<div class="inquiry_col col-md-4 col-xs-4">
+							<a href="/PageDepth/Inquiry/inquiry.jsp" id="board_trigger">
+								<img src="/Photo/Inquiry/qaBackground.png"
+								class="main_p3 img-responsive" />
+							</a>
+							<p class="main_p">Q&amp;A</p>
+						</div>
+					</c:when>
+				</c:choose>
+			</div>
+		</div>
+	</div>
+</div>
+
+<jsp:include page="/PageDepth/Footer.html" />
